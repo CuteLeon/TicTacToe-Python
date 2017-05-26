@@ -85,7 +85,9 @@ def HaveTwoPiece(role):
         #不存在上述行
         return False
 
-#AI先手
+# <summary>
+# 由 AI 落子
+# </summary>
 def AIStart():
     if (ShouldAttack()):
         print("AI 发起攻击！")
@@ -182,8 +184,13 @@ def GetWinner():
         #平局
         return Role.Empty
 
+# <summary>
+# 轮到用户落子
+# </summary>
+# <param name="Error">用户上次输入的棋子坐标的错误代码</param>
 def PlayerInput(Error=0):
     global Tabel
+    # 把错误代码传送给输出函数，用于显示错误信息
     PrintGame(Error)
     #这里严防输入参数过多或过少，必须要是两个数字用逗号分开，否则出错
     x,y=map(int,input("\n请输入落子坐标（以逗号分开，介于[0~2],[0~2]之间）:").split(","))
